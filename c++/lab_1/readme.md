@@ -3,7 +3,7 @@
 Git уже установлен по умолчанию в дистрибутиве Ubuntu-22.04.
 
 Установка VS Code
-![Alt-текст](screenshots/vs_code.png "I1")
+![Alt-текст](screenshots/vs_code.png = 250px)
 
 Установка g++
 ![Alt-текст](screenshots/g++_install.png "I1")
