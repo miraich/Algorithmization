@@ -3,13 +3,13 @@
 Git уже установлен по умолчанию в дистрибутиве Ubuntu-22.04.
 
 Установка VS Code
-![Alt-текст](screenshots/vs_code.png = 250px)
+<img src="screenshots/vs_code.png" width="250">
 
 Установка g++
-![Alt-текст](screenshots/g++_install.png "I1")
+<img src="screenshots/g++_install.png" width="250">
 
 Написание простого алгоритма, в котором при вводе х зависит значение у.
-![Alt-текст](screenshots/algo.png "I1")
+<img src="screenshots/algo.png" width="250">
 
 Вывод работы программы
-![Alt-текст](screenshots/output.png "I1")
+<img src="screenshots/output.png" width="250">
