@@ -6,16 +6,16 @@ Git уже установлен по умолчанию в дистрибути�
 
 Установка VS Code
 <br>
-<img src="screenshots/vs_code.png" width="250">
+<img src="screenshots/vs_code.png" width="500">
 
 Установка g++
 <br>
-<img src="screenshots/g++_install.png" width="250">
+<img src="screenshots/g++_install.png" width="500">
 
 Написание простого алгоритма, в котором при вводе х зависит значение у.
 <br>
-<img src="screenshots/algo.png" width="250">
+<img src="screenshots/algo.png" width="500">
 
 Вывод работы программы
 <br>
-<img src="screenshots/output.png" width="250">
+<img src="screenshots/output.png" width="500">
