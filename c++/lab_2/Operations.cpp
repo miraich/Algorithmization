@@ -1,5 +1,6 @@
-enum Operations {
+enum class Operations
+{
     vv_sum = '+',
-    vv_subtr,
-    vv_scmult
+    vv_subtr = '-',
+    vv_scmult = '*'
 };

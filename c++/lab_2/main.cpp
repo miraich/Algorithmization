@@ -1,39 +1,52 @@
 #include <iostream>
 #include "CalcProblemParams.cpp"
 #include "FileWorker.cpp"
+#include "CalcProblem.cpp"
 
 using namespace std;
 
-
-int main(int argc, char** argv)
+int main(int argc, char **argv)
 {
-
-    // for (int i = 1; i <= argc; i++) {
-    //     cout << argv[i];
-    // }
-
-    CalcProblemParams P;
-    P.filePath1 = argv[2];
-    P.filePath2 = argv[4];
-    P.filepaths.push_back(P.filePath1);
-    P.filepaths.push_back(P.filePath2);  
-
-    FileWorker W;
-    std::vector<double> v1 = W.readFromFile(P.filePath1);
-    std::vector<double> v2 = W.readFromFile(P.filePath2);
-
-    switch (P.op) {
-        case Operations::vv_sum:
-            cout << "sum";
-
+    if (argc == 1)
+    {
+        cout << "Enter command line arguments" << '\n';
+        return -1;
     }
 
-    // CalcProblem Cp;
-    // Cp.VectorSum();
+    CalcProblemParams P(argv);
+    FileWorker FW;
+    std::vector<double> v1;
+    std::vector<double> v2;
 
-    // for (double i: v) {
-    //     cout << i << ' ';
-    // }
+    try
+    {
+        v1 = FW.ReadFromFile(P.filePath1);
+        v2 = FW.ReadFromFile(P.filePath2);
+    }
 
-	
+    catch (const std::exception &)
+    {
+        std::cerr << "err reading file" << '\n';
+    }
+
+    CalcProblem CP;
+
+    switch (*argv[6])
+    {
+    case char(Operations::vv_sum):
+        FW.WriteToFile(CP.VectorSum(v1, v2));
+        break;
+
+    case char(Operations::vv_subtr):
+        FW.WriteToFile(CP.VectorSubtr(v1, v2));
+        break;
+
+    case char(Operations::vv_scmult):
+        FW.WriteToFile(CP.VectorScalarMult(v1, v2));
+        break;
+
+    default:
+        std::cerr << "Unknown operation!" << '\n';
+        return -1;
+    }
 }
