@@ -7,16 +7,16 @@ using namespace std;
 
 int main(int argc, char **argv)
 {
-    if (argc == 1)
+    if (argc < 7)
     {
-        cout << "Enter command line arguments" << '\n';
+        cerr << "Not enough arguments! Required: 6 Entered: " << argc - 1 << '\n';
         return -1;
     }
 
     CalcProblemParams P(argv);
     FileWorker FW;
-    std::vector<double> v1;
-    std::vector<double> v2;
+    vector<double> v1;
+    vector<double> v2;
 
     try
     {
@@ -26,7 +26,7 @@ int main(int argc, char **argv)
 
     catch (const std::exception &)
     {
-        std::cerr << "err reading file" << '\n';
+        cerr << "err reading file" << '\n';
     }
 
     CalcProblem CP;
@@ -34,19 +34,37 @@ int main(int argc, char **argv)
     switch (*argv[6])
     {
     case char(Operations::vv_sum):
-        FW.WriteToFile(CP.VectorSum(v1, v2));
+        try
+        {
+            FW.WriteToFile(CP.VectorSum(v1, v2));
+        }
+        catch (const std::exception &e)
+        {
+            cerr << "err writing file" << '\n';
+        }
         break;
-
     case char(Operations::vv_subtr):
-        FW.WriteToFile(CP.VectorSubtr(v1, v2));
+        try
+        {
+            FW.WriteToFile(CP.VectorSubtr(v1, v2));
+        }
+        catch (const std::exception &e)
+        {
+            cerr << "err writing file" << '\n';
+        }
         break;
-
     case char(Operations::vv_scmult):
-        FW.WriteToFile(CP.VectorScalarMult(v1, v2));
+        try
+        {
+            FW.WriteToFile(CP.VectorScalarMult(v1, v2));
+        }
+        catch (const std::exception &e)
+        {
+            cerr << "err writing file" << '\n';
+        }
         break;
-
     default:
-        std::cerr << "Unknown operation!" << '\n';
+        cerr << "Unknown operation!" << '\n';
         return -1;
     }
 }
